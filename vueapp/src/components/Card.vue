@@ -1,7 +1,7 @@
 <template>
 	<div class="card">
 		<div class="card-header">
-            <span class="card-close">X</span>
+            <span @click="deleteCard" class="card-close">X</span>
 		</div>
         <div class="card-title" contenteditable="">
             {{card.title}} 
@@ -19,6 +19,11 @@
          card: {
              type: Object,
              required: true
+         }
+     },
+     methods: {
+         deleteCard() {
+             this.$emit('deleteCard', this.card);
          }
      }
  }

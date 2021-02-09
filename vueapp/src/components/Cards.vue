@@ -1,8 +1,8 @@
 <template>
     <div class="cards-wrapper">
-        <add-new-button />
+        <add-new-button @addCard="addCard" />
         <div class="cards">
-            <card v-for="(card, index) in cards" :key="index" :card="card" />
+            <card v-for="(card, index) in cards" :key="index" :card="card" @deleteCard="deleteCard" />
         </div>
     </div>
 </template>
@@ -30,6 +30,14 @@
                      body: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been'
                  },
              ]
+         }
+     },
+     methods: {
+         addCard() {
+             this.cards.unshift({title: '', body: ''});
+         },
+         deleteCard(card) {
+             this.cards.splice(this.cards.indexOf(card), 1);
          }
      }
  }
