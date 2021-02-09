@@ -23,6 +23,10 @@
 </script>
 
 <style lang="scss">
+ .heading {
+     text-align: center;
+ }
+ 
  .left {
      float: left;
      width: 30%;

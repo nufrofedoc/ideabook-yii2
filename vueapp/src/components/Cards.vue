@@ -48,18 +48,7 @@
 </script>
 
 <style lang="scss">
- @import url('https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap');
-
- body {
-     background-color: #ffeeff;
-     font-family: 'Nothing You Could Do';
- }
-
- .heading {
-     text-align: center;
- }
-
- .cards-wrapper {
+.cards-wrapper {
      .cards {
          display: flex;
          justify-content: center;
