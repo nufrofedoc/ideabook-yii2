@@ -2,7 +2,8 @@
     <div class="cards-wrapper">
         <add-new-button @addCard="addCard" />
         <div class="cards">
-            <card v-for="(card, index) in cards" :key="index" :card="card" @deleteCard="deleteCard" />
+            <card v-for="(card, index) in cards" :key="index" :card="card"
+                  @deleteCard="deleteCard" @cardUpdated="cardUpdated" />
         </div>
     </div>
 </template>
@@ -38,6 +39,9 @@
          },
          deleteCard(card) {
              this.cards.splice(this.cards.indexOf(card), 1);
+         },
+         cardUpdated(card) {
+             
          }
      }
  }

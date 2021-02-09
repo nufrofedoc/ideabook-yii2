@@ -3,10 +3,10 @@
 		<div class="card-header">
             <span @click="deleteCard" class="card-close">X</span>
 		</div>
-        <div class="card-title" contenteditable="">
+        <div class="card-title" contenteditable="" @blur="titleChanged">
             {{card.title}} 
         </div>
-		<div class="card-body text-left" contenteditable="">
+		<div class="card-body text-left" contenteditable="" @blur="bodyChanged">
             {{card.body}}
 		</div>
 	</div>
@@ -24,6 +24,14 @@
      methods: {
          deleteCard() {
              this.$emit('deleteCard', this.card);
+         },
+         titleChanged($event) {
+             this.card.title = $event.target.innerHTML;
+             this.$emit('cardUpdated', this.card);
+         },
+         bodyChanged($event) {
+             this.card.body = $event.target.innerHTML;
+             this.$emit('cardUpdated', this.card);
          }
      }
  }
