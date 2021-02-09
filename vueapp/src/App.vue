@@ -1,32 +1,13 @@
 <template>
-    <div id="app">
-        <h1 class="heading">DraftBook</h1>        
-        <div class="left">
-            <repository />
-        </div>
-        <div class="right">
-            <board />
-        </div>
+  <div id="app">
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link>
+    </div>
+    <router-view/>
   </div>
 </template>
 
-<script>
- import Board from "./components/Board.vue";
- import Repository from "./components/Repository.vue";
- 
- export default {
-     name: 'App',
-     components: {Board, Repository}
-}
-</script>
-
 <style lang="scss">
- .left {
-     float: left;
-     width: 30%;
- }
- .right {
-     float: left;
-     width: 70%;
- }
+
 </style>
