@@ -1,12 +1,39 @@
 <template>
-    <div>
-        Registration
+    <div class="form-wrapper">
+        <h1>Register to DraftBook</h1>
+        <form @submit.prevent="register" action="">
+            <div v-if="errors" class="errors">
+                <p v-for="(error, field) in errors" :key="field">
+                    {{error[0]}}
+                </p>
+            </div>
+            <input type="text" v-model="form.username" placeholder="Your username"><br>
+            <input type="password" v-model="form.password" placeholder="Your password"><br>
+            <input type="password.repeat" v-model="form.password_repeat" placeholder="Repeat password"><br>
+            <button>Register</button>
+            <router-link to="/login" class="link">Login</router-link>
+        </form>
     </div>
 </template>
 
 <script>
  export default {
-     name: "Registration"
+     name: "Registration",
+     data() {
+         return {
+             form: {
+                 username: '',
+                 password: '',
+                 password_repeat: '',
+             },
+             errors: null
+         }
+     },
+     methods: {
+         login() {
+             console.log('Registration', this.form);
+         }
+     }
  }
 </script>
 
