@@ -18,7 +18,7 @@ class m210210_004607_create_cards_table extends Migration
         $this->createTable('{{%cards}}', [
             'id' => $this->primaryKey(),
             'title' => $this->string(255),
-            'body' => $this->text()(),
+            'body' => $this->text(),
             'created_at' => $this->integer(11),
             'updated_at' => $this->integer(11),
             'created_by' => $this->integer(11),
