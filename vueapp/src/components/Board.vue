@@ -15,7 +15,7 @@ import Cards from "./Cards.vue";
 
 <style lang="scss">
  .board {
-     background-color: #12632b9c;
+     background-color: #474c49;
      padding: 20px;
      border: 10px solid #eeec;
  }

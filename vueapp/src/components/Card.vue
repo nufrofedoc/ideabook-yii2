@@ -39,7 +39,8 @@
 
 <style lang="scss">
  .card {
-     background-color: #e7e8c4;
+     background-color: #2F242C;
+     color: #F0F7F4;
      border-radius: 8px;
      width: 280px;
      margin: 0 10px 20px;

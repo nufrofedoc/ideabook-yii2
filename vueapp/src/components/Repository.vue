@@ -13,7 +13,8 @@
 
 <style lang="scss">
  .repository {
-     background-color: #12632b9c;
+     background-color: #474c49;
+     color: #fff;
      min-height: 500px;
      margin-right: 30px;
      opacity: .8;
