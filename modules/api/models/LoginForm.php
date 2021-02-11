@@ -4,6 +4,7 @@ namespace app\modules\api\models;
 
 use Yii;
 use yii\base\Model;
+use app\modules\api\resources\UserResource;
 
 /**
  * LoginForm is the model behind the login form.

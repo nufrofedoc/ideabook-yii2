@@ -2,12 +2,13 @@
 
 namespace app\modules\api\controllers;
 
-use app\modules\api\models\LoginForm;
 use Yii;
 use yii\rest\Controller;
+use app\modules\api\models\LoginForm;
+use app\modules\api\models\SignupForm;
 
 /**
- * Class DefaultController
+ * Class UserController
  */
 class UserController extends Controller
 {
@@ -18,7 +19,20 @@ class UserController extends Controller
             return $model->getUser()->toArray(['id', 'username', 'access_token']);
         }
 
-        Yii::$app->reponse->statusCode = 422;
+        Yii::$app->response->statusCode = 422;
+        return [
+            'errors' => $model->errors
+        ];
+    }
+
+    public function actionSignup()
+    {
+       $model = new SignupForm();
+        if ($model->load(Yii::$app->request->post(), '') && $model->register()) {
+            return $model->_user;
+        }
+
+        Yii::$app->response->statusCode = 422;
         return [
             'errors' => $model->errors
         ];
