@@ -3,6 +3,7 @@
 namespace app\modules\api\controllers;
 
 use Yii;
+use yii\filters\Cors;
 use yii\rest\Controller;
 use app\modules\api\models\LoginForm;
 use app\modules\api\models\SignupForm;
@@ -12,6 +13,13 @@ use app\modules\api\models\SignupForm;
  */
 class UserController extends Controller
 {
+    public function behaviors()
+    {
+        return array_merge(parent::behaviors(), [
+            'cors' => Cors::class
+        ]);
+    }
+
     public function actionLogin()
     {
         $model = new LoginForm();

@@ -16,6 +16,8 @@
 </template>
 
 <script>
+ import axios from 'axios';
+ 
  export default {
      name: "Login",
      data() {
@@ -28,13 +30,27 @@
          }
      },
      methods: {
-         login() {
+         async login() {
              console.log('Login', this.form);
+             try {
+                 const {status, data} = await axios.post('http://localhost:8080/api/user/login', this.form)
+                 console.log(status, data);
+             } catch(e) {
+                 this.errors = e.response.data.errors;
+             }
          }
      }
  }
 </script>
 
 <style lang="scss">
+ .errors {
+     background-color: #ff3333;
+     color: #ffffff;
+     padding: 3px;
 
+     p {
+       padding-left: 20px;
+     }
+ }
 </style>
