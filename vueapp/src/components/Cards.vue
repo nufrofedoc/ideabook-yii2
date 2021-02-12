@@ -18,19 +18,27 @@
      components: {Card, AddNewButton},
      data() {
          return {
-             cards: [
-             ]
+             cards: []
          }
      },
      methods: {
-         addCard() {
-             this.cards.unshift({title: '', body: ''});
+         async addCard() {
+             const {status, data} = await httpClient.post('card', {});
+             if (status === 201) {
+                 this.cards.unshift(data);
+             }
          },
-         deleteCard(card) {
-             this.cards.splice(this.cards.indexOf(card), 1);
+         async deleteCard(card) {
+             const {status, data} = await httpClient.delete(`card/${card.id}`, {});
+             if (status === 204) {
+                 this.cards.splice(this.cards.indexOf(card), 1);
+             }
          },
-         cardUpdated(card) {
-             
+         async cardUpdated(card) {
+             const {status, data} = await httpClient.put(`card/${card.id}`, card);
+             if (status === 200) {
+                 //this.cards.unshift(data);
+             }
          }
      },
      async mounted() {
