@@ -17,9 +17,10 @@
 
 <script>
  import axios from 'axios';
+ import authService from '../services/auth.service';
  
  export default {
-     name: "Login",
+    name: "Login",
      data() {
          return {
              form: {
@@ -31,13 +32,13 @@
      },
      methods: {
          async login() {
-             console.log('Login', this.form);
-             try {
-                 const {status, data} = await axios.post('http://localhost:8080/api/user/login', this.form)
-                 console.log(status, data);
-             } catch(e) {
-                 this.errors = e.response.data.errors;
-             }
+             console.log("Login", this.form);
+             const {success, errors} = await authService.login(this.form);
+            if (success) {
+                this.$router.push({name: 'home'})
+            } else {
+                this.errors = errors;
+            }
          }
      }
  }
