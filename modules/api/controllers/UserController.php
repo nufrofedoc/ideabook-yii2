@@ -7,6 +7,8 @@ use yii\filters\Cors;
 use yii\rest\Controller;
 use app\modules\api\models\LoginForm;
 use app\modules\api\models\SignupForm;
+use yii\web\UnauthorizedHttpException;
+use app\modules\api\resources\UserResource;
 
 /**
  * Class UserController
@@ -44,5 +46,18 @@ class UserController extends Controller
         return [
             'errors' => $model->errors
         ];
+    }
+
+    public function actionGetData()
+    {
+        $headers = Yii::$app->request->headers;
+        if (!isset($headers['Authorization'])) {
+            throw new UnauthorizedHttpException();
+        }
+        $accessToken = explode(" ", $headers['Authorization'])[1];
+        $user = UserResource::findIdentityByAccessToken($accessToken);
+        if (!$user) {
+            throw new UnauthorizedHttpException();
+        }
     }
 }
