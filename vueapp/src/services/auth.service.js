@@ -22,6 +22,9 @@ const authService = {
     },
     isLoggedIn() {
         return !!localStorage.getItem('ACCESS_TOKEN');
+    },
+    getToken() {
+        return localStorage.getItem('ACCESS_TOKEN');
     }
 };
 

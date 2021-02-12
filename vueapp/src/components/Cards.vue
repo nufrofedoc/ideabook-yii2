@@ -11,6 +11,7 @@
 <script>
  import AddNewButton from "./buttons/AddNewButton.vue";
  import Card from "./Card.vue";
+ import httpClient from "../services/http.service";
  
  export default {
      name: "Cards",
@@ -18,18 +19,6 @@
      data() {
          return {
              cards: [
-                 {
-                     title: 'Lorem Ipsum',
-                     body: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been'
-                 },
-                 {
-                     title: 'Lorem Ipsum',
-                     body: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been'
-                 },
-                 {
-                     title: 'Lorem Ipsum',
-                     body: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been'
-                 },
              ]
          }
      },
@@ -42,6 +31,12 @@
          },
          cardUpdated(card) {
              
+         }
+     },
+     async mounted() {
+         const {status, data} = await httpClient.get('card');
+         if (status === 200) {
+             this.cards = data;
          }
      }
  }
