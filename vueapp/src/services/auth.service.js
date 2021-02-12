@@ -18,6 +18,20 @@ const authService = {
             }
         }
     },
+    async register(formData) {
+        try {
+            const{status, data} = await httpClient.post('user/signup', formData);
+            if (status == 200) {
+                this.setUser(data);
+                return {success: true};
+            }
+        } catch(e) {
+            return {
+                success: false,
+                errors: e.response.data.errors
+            }
+        }
+    },
     async getCurrentUser() {
         if (!this.user) {
             const {status, data} = await httpClient.post('user/get-data');

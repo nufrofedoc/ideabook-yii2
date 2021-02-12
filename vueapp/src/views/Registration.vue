@@ -17,6 +17,8 @@
 </template>
 
 <script>
+ import authService from "../services/auth.service";
+ 
  export default {
      name: "Registration",
      data() {
@@ -30,8 +32,13 @@
          }
      },
      methods: {
-         login() {
-             console.log('Registration', this.form);
+         async register() {
+             const {success, errors} = await authService.register(this.form);
+             if (success) {
+                 this.$router.push({name: 'home'});
+             } else {
+                 this.errors = errors;
+             }
          }
      }
  }
