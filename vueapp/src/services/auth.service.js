@@ -1,4 +1,5 @@
 import axios from 'axios';
+import router from '../router';
 
 const authService = {
     user: null,
@@ -25,6 +26,10 @@ const authService = {
     },
     getToken() {
         return localStorage.getItem('ACCESS_TOKEN');
+    },
+    logout() {
+        localStorage.removeItem('ACCESS_TOKEN');
+        router.push({name: 'login'});
     }
 };
 

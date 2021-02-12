@@ -2,11 +2,11 @@
 
 namespace app\modules\api\controllers;
 
-use app\models\Card;
 use app\modules\api\resources\CardResource;
 use yii\filters\auth\HttpBearerAuth;
 use yii\filters\Cors;
 use yii\rest\ActiveController;
+use yii\data\ActiveDataProvider;
 
 /**
  * Class CardController
@@ -41,5 +41,19 @@ class CardController extends ActiveController
         $behaviors['authenticator'] = $auth;
 
         return $behaviors;
+    }
+
+    public function actions()
+    {
+        $actions = parent::actions();
+        $actions['index']['prepareDataProvider'] = [$this, 'prepareDataProvider'];
+        return $actions;
+    }
+
+    public function prepareDataProvider()
+    {
+        return new ActiveDataProvider([
+            'query' => $this->modelClass::find()->byUser(\Yii::$app->user->id)
+        ]);
     }
 }
