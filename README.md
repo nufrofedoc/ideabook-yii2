@@ -9,7 +9,7 @@ $ composer update
 $ cd vueapp
 $ npm update
 $ npm run serve
-```console
+```
 
 # Requirements
 
