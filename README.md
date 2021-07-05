@@ -1,6 +1,14 @@
-# Draft book on Yii2
+# Draft book
 
-The simple application for storing your ideas. Used technologies REST API, Vue.js, Yii2.
+The application for storing your ideas. Used technologies REST API, Vue.js, Yii2.
+
+# Requirements
+
+* PHP >=5.6.0
+* Yii2
+* Composer
+* Node.js
+* Vue.js
 
 # Quick start
 
@@ -11,10 +19,3 @@ $ npm update
 $ npm run serve
 ```
 
-# Requirements
-
-* PHP >=5.6.0
-* Yii2
-* Composer
-* Node.js
-* Vue.js
