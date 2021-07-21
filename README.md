@@ -14,8 +14,9 @@ The application for storing your ideas. Used technologies REST API, Vue.js, Yii2
 
 ```console
 $ composer update
-$ cd vueapp
+$ cd frontend
 $ npm update
 $ npm run serve
+$ docker-compose up -d
 ```
 
