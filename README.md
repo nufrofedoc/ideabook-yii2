@@ -1,6 +1,6 @@
-# Draft book
+# Idea Book
 
-The application for storing your ideas. Used technologies REST API, Vue.js, Yii2.
+The web application for storing your ideas. Used technologies REST API, Vue.js, Yii2.
 
 # Requirements
 
