@@ -1,6 +1,6 @@
 <template>
     <div class="form-wrapper">
-        <h1>Login to DraftBook</h1>
+        <h1>Login to IdeaBook</h1>
         <form @submit.prevent="login" action="">
             <div v-if="errors" class="errors">
                 <p v-for="(error, field) in errors" :key="field">

@@ -1,6 +1,6 @@
 <template>
     <div class="home">
-        <h1 class="heading">DraftBook</h1>
+        <h1 class="heading">IdeaBook</h1>
         <div class="left">
             <repository />
         </div>
