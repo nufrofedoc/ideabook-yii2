@@ -7,7 +7,7 @@ services:
     - ~/.composer-docker/cache:/root/.composer/cache:delegated
     - ./:/app:delegated
     ports:
-    - '8081:80'
+    - '8080:80'
     networks:
     - default
     depends_on:

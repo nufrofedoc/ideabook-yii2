@@ -16,7 +16,7 @@ The web application for storing your ideas. Used technologies REST API, Vue.js, 
 $ composer update
 $ cd frontend
 $ npm update
-$ npm run serve
 $ docker-compose up -d
+$ npm run serve
 ```
 
