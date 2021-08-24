@@ -18,5 +18,7 @@ $ cd frontend
 $ npm update
 $ docker-compose up -d
 $ npm run serve
+$ docker exec -it ideabook-yii2-php-1 bash
+$ php yii migrate
 ```
 
