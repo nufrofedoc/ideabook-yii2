@@ -9,7 +9,7 @@
             </div>
             <input type="text" v-model="form.username" placeholder="Your username"><br>
             <input type="password" v-model="form.password" placeholder="Your password"><br>
-            <input type="password.repeat" v-model="form.password_repeat" placeholder="Repeat password"><br>
+            <input type="password" v-model="form.password_repeat" placeholder="Repeat password"><br>
             <button>Register</button>
             <router-link to="/login" class="link">Login</router-link>
         </form>
