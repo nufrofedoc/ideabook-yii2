@@ -1,15 +1,16 @@
-import axios from 'axios';
+import httpClient from './http.service.js';
 import router from '../router';
-import httpClient from '../services/http.service.js';
 
 const authService = {
-    user: null,
+    currentUser: null,
     async login(formData) {
         try {
             const{status, data} = await httpClient.post('user/login', formData);
             if (status == 200) {
-                this.setUser(data);
-                return {success: true};
+                localStorage.setItem('ACCESS_TOKEN', data.access_token)
+            }
+            return {
+                success: true
             }
         } catch(e) {
             return {
@@ -22,8 +23,10 @@ const authService = {
         try {
             const{status, data} = await httpClient.post('user/signup', formData);
             if (status == 200) {
-                this.setUser(data);
-                return {success: true};
+                localStorage.setItem('ACCESS_TOKEN', data.access_token)
+            }
+            return {
+                success: true
             }
         } catch(e) {
             return {
@@ -32,18 +35,20 @@ const authService = {
             }
         }
     },
-    async getCurrentUser() {
-        if (!this.user) {
-            const {status, data} = await httpClient.post('user/get-data');
-            if (status === 200) {
-                this.user = data;
+    async getUser() {
+        try {
+            if (!this.currentUser) {
+                const {status, data} = await httpClient.get('/user/data');
+                if (status === 200) {
+                    this.currentUser = data;
+                }
             }
+
+        } catch (e) {
+            return null;
         }
-        return this.user;
-    },
-    setUser(user) {
-        this.user = user;
-        localStorage.setItem('ACCESS_TOKEN', user.access_token);
+
+        return this.currentUser;
     },
     isLoggedIn() {
         return !!localStorage.getItem('ACCESS_TOKEN');
@@ -53,7 +58,7 @@ const authService = {
     },
     logout() {
         localStorage.removeItem('ACCESS_TOKEN');
-        router.push({name: 'login'});
+        router.push('/login');
     }
 };
 

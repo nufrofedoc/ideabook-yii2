@@ -48,7 +48,7 @@ class UserController extends Controller
         ];
     }
 
-    public function actionGetData()
+    public function actionData()
     {
         $headers = Yii::$app->request->headers;
         if (!isset($headers['Authorization'])) {
@@ -56,8 +56,11 @@ class UserController extends Controller
         }
         $accessToken = explode(" ", $headers['Authorization'])[1];
         $user = UserResource::findIdentityByAccessToken($accessToken);
+
         if (!$user) {
             throw new UnauthorizedHttpException();
         }
+
+        return $user;
     }
 }

@@ -18,7 +18,7 @@
          }
      },
      async beforeMount() {
-         this.user = await authService.getCurrentUser();
+         this.user = await authService.getUser();
      }
  }
 </script>
