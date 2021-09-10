@@ -22,3 +22,7 @@ $ docker exec -it ideabook-yii2-php-1 bash
 $ php yii migrate
 ```
 
+## References
+
+- Heavily Inspired by https://www.youtube.com/watch?v=7vrctmDQYW4&list=PLLQuc_7jk__VeTjHhOsHjP1IHFoLOSMOi&index=1
+- Partially stolen from https://github.com/thecodeholic/VueJs-Yii2-Notes
