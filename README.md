@@ -13,9 +13,9 @@ The web application for storing your ideas. Used technologies REST API, Vue.js, 
 # Quick start
 
 ```console
-$ composer update
+$ composer install
 $ cd frontend
-$ npm update
+$ npm install
 $ docker-compose up -d
 $ npm run serve
 $ docker exec -it ideabook-yii2-php-1 bash
