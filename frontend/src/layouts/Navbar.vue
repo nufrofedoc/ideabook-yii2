@@ -1,7 +1,7 @@
 <template>
     <div class="navbar">
         Welcome, {{user.username}}
-        <a class="link" href="/logout" @click="logout" style="color: #fff;">Logout</a>
+        <a class="javascript:void(0);" @click="logout" style="color: #fff;">Logout</a>
     </div>
 </template>
 
