@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-import Login from '../views/Login.vue'
-import Registration from '../views/Registration.vue'
-import DefaultLayout from '../layouts/DefaultLayout.vue'
-import AuthLayout from '../layouts/AuthLayout.vue'
-import authService from '../services/auth.service.js'
+import Home from '../views/Home'
+import Login from '../views/Login'
+import Registration from '../views/Registration'
+import DefaultLayout from '../layouts/DefaultLayout'
+import AuthLayout from '../layouts/AuthLayout'
+import authService from '../services/auth.service'
 
 Vue.use(VueRouter)
 
@@ -26,9 +26,6 @@ const routes = [
     {
         path: '/auth',
         name: 'Auth',
-        // route level code-splitting
-        // this generates a separate chunk (about.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
         component: AuthLayout,
         children: [
             {
