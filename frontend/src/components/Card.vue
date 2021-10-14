@@ -50,7 +50,6 @@
      font-family: 'Nothing You Could Do';
      transition: .5s ease;
      border-radius: 0;
-     transform: perspective(3em) rotateX(0deg) rotateY(-1.175deg) rotateZ(-1deg);
      &-header {
          border-radius: 0;
      }
@@ -58,7 +57,7 @@
          transition: .5s ease;
      }
      &:hover {
-         transform: perspective(0em) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+         transform: perspective(1em) rotateX(-0.3deg) rotateY(0deg) rotateZ(0deg);
      }
      &-body {
          position: relative;

@@ -1,6 +1,5 @@
 <template>
     <div class="home">
-        <h1 class="heading">IdeaBook</h1>
         <div class="left">
             <repository />
         </div>
@@ -23,10 +22,9 @@
 </script>
 
 <style lang="scss">
- .heading {
-     text-align: center;
- }
- 
+.home {
+    margin-top: 50px;
+}
  .left {
      float: left;
      width: 30%;

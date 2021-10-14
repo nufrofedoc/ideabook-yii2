@@ -13,11 +13,10 @@
 
 <style lang="scss">
  .repository {
-     background-color: #474c49;
+     background-color: rgba(30, 30, 30, 0.97);
      color: #fff;
-     min-height: 500px;
+     min-height: 300px;
      margin-right: 30px;
-     opacity: .8;
 
      .repository-title {
          text-align: center;
@@ -25,8 +24,5 @@
          padding: 10px 16px;
          font-weight: bold;
      }
-     &:hover {
-         opacity: 1;
-     }     
  }
 </style>
